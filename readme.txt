@@ -4,7 +4,7 @@ Tags: woocommerce, catalog, price list, product sheet, print
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,7 +44,7 @@ A document holds at most 200 products. Past that, Printvane paginates: you get "
 
 * **Documentation**: [plogins.com/printvane/docs/](https://plogins.com/printvane/docs/)
 * **Plugin page**: [plogins.com/printvane/](https://plogins.com/printvane/)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-folio/issues](https://github.com/wppoland/plogins-folio/issues)
+* **Bug reports and feature requests**: [github.com/wppoland/printvane/issues](https://github.com/wppoland/printvane/issues)
 
 == Installation ==
 
@@ -90,6 +90,9 @@ The document is never cached. Prices can differ per customer, so caching one per
 4. The settings screen: what each document shows.
 
 == Changelog ==
+
+= 1.0.4 =
+* Links point at the renamed GitHub repository.
 
 = 1.0.3 =
 * Renamed to Printvane, with the slug and text domain `printvane`. Settings, shortcode, hooks and the `?folio=` links are unchanged.
