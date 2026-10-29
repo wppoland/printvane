@@ -4,7 +4,7 @@ Tags: woocommerce, catalog, price list, product sheet, print
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ The document is never cached. Prices can differ per customer, so caching one per
 
 == Changelog ==
 
+= 1.0.5 =
+* Security (low): the public printable catalogue and price list included products set to hidden in the catalogue and password-protected products, with their prices. Both are now left out.
+
 = 1.0.4 =
 * Links point at the renamed GitHub repository.
 
@@ -106,3 +109,8 @@ The document is never cached. Prices can differ per customer, so caching one per
 
 = 1.0.0 =
 * First release: product sheets, category and shop catalogs, and price lists, all printable from the browser.
+
+== Upgrade Notice ==
+
+= 1.0.5 =
+Security release. Any site with Printvane active is affected if it has hidden or password-protected products. Update, nothing else to do.

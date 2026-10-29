@@ -85,6 +85,30 @@ $beyond = $query->ids([], 9999);
 folio_assert('a part number past the end clamps to the last part', $beyond['parts'], $beyond['parts']);
 folio_assert('the clamped part still holds products', true, count($beyond['ids']) > 0);
 
+// 4. The public catalogue never lists what the shop hides. Visibility and
+// password protection are not applied by wc_get_products() unless asked for.
+$hidden = new \WC_Product_Simple();
+$hidden->set_name('Folio check hidden');
+$hidden->set_status('publish');
+$hidden->set_regular_price('9');
+$hidden->set_catalog_visibility('hidden');
+$hiddenId = $hidden->save();
+
+$lockedProduct = new \WC_Product_Simple();
+$lockedProduct->set_name('Folio check locked');
+$lockedProduct->set_status('publish');
+$lockedProduct->set_regular_price('9');
+$locked = $lockedProduct->save();
+wp_update_post(['ID' => $locked, 'post_password' => 'x']);
+
+$listed = $query->ids([])['ids'];
+
+folio_assert('a catalogue-hidden product is not printed', false, in_array($hiddenId, $listed, true));
+folio_assert('a password-protected product is not printed', false, in_array((int) $locked, $listed, true));
+
+wp_delete_post($hiddenId, true);
+wp_delete_post((int) $locked, true);
+
 $failures = (int) $GLOBALS['folio_failures'];
 $checks   = (int) $GLOBALS['folio_checks'];
 

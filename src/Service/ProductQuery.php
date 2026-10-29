@@ -48,11 +48,16 @@ final class ProductQuery
     {
         $base = array_merge(
             [
-                'status'  => 'publish',
-                'limit'   => -1,
-                'return'  => 'ids',
-                'orderby' => 'title',
-                'order'   => 'ASC',
+                'status'       => 'publish',
+                // Not applied unless asked for: without these the public
+                // catalogue and price list printed hidden and
+                // password-protected products with their prices.
+                'visibility'   => 'catalog',
+                'has_password' => false,
+                'limit'        => -1,
+                'return'       => 'ids',
+                'orderby'      => 'title',
+                'order'        => 'ASC',
             ],
             $args,
         );
