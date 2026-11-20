@@ -158,16 +158,21 @@ final class PrintRoute implements HasHooks
 
     /**
      * Visibility, not authorisation: whatever the shop shows publicly may be
-     * printed, and anything else needs the capability to read it.
+     * printed, and anything else needs the capability to edit it.
      */
     private function mayPrint(\WC_Product $product): bool
     {
-        $allowed = 'publish' === $product->get_status()
+        // A variation carries no password of its own; the parent's applies.
+        $parentId = $product->get_parent_id();
+        $allowed  = 'publish' === $product->get_status()
             && $product->is_visible()
-            && ! post_password_required($product->get_id());
+            && ! post_password_required($product->get_id())
+            && ! ($parentId > 0 && post_password_required($parentId));
 
+        // edit_post, not read_post: read_post on a published product is plain
+        // `read`, which every customer holds, password or not.
         if (! $allowed) {
-            $allowed = current_user_can('read_post', $product->get_id());
+            $allowed = current_user_can('edit_post', $product->get_id());
         }
 
         /**
