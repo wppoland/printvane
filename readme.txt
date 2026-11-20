@@ -119,5 +119,8 @@ The document is never cached. Prices can differ per customer, so caching one per
 
 == Upgrade Notice ==
 
+= 1.0.7 =
+Security release. Affects shops with password-protected products: logged-in customers could print their product sheets. Update, nothing else to do.
+
 = 1.0.5 =
 Security release. Any site with Printvane active is affected if it has hidden or password-protected products. Update, nothing else to do.
