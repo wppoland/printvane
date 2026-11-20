@@ -159,7 +159,12 @@ final class ProductData
         $status = $product->get_stock_status();
         $qty    = $product->get_stock_quantity();
 
-        if ($product->managing_stock() && null !== $qty) {
+        // Same rule as wc_format_stock_for_display(): the shop's "Stock display
+        // format" decides whether a visitor may see the quantity.
+        $format = (string) get_option('woocommerce_stock_format');
+
+        if ($product->managing_stock() && null !== $qty
+            && ('' === $format || ('low_amount' === $format && $qty <= wc_get_low_stock_amount($product)))) {
             return sprintf('%s (%d)', $this->statusLabel($status), $qty);
         }
 
