@@ -84,10 +84,10 @@ The document is never cached. Prices can differ per customer, so caching one per
 
 == Screenshots ==
 
-1. A product sheet, ready to print.
-2. A category catalog in two columns.
-3. A price list with SKU, availability and price.
-4. The settings screen: what each document shows.
+1. Printable catalog of the shop.
+2. Printable product sheet.
+3. Printable price list.
+4. Settings under WooCommerce > Printvane: where the links appear and what each document shows.
 
 == Changelog ==
 
