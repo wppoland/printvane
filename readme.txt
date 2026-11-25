@@ -4,7 +4,7 @@ Tags: woocommerce, catalog, price list, product sheet, print
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ The document is never cached. Prices can differ per customer, so caching one per
 4. Settings under WooCommerce > Printvane: where the links appear and what each document shows.
 
 == Changelog ==
+
+= 1.0.8 =
+* Plugins list shows a shortcut to the settings screen.
 
 = 1.0.7 =
 * Security (low): a product sheet could still be printed for a password-protected product by any logged-in customer, and for a variation of a password-protected product by any visitor. Both now need the password or the right to edit the product.
